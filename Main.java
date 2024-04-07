@@ -1,10 +1,24 @@
+import geometry.Point;
+import geometry.Circle;
+import geometry.ColoredCircle;
+
 
 public class Main {
     public static void main(String[] args) {
-        Point test_point = new Point(1.0, 2.0);
+        Circle[] circles = new Circle[2];
+
+        circles[0] = new Circle(new Point(2, 4), 5);
+        circles[1] = new ColoredCircle(new Point(1, 1), 2, "red");
+
         
-        System.out.println("Współrzędne punktu:");
-        System.out.println("x=" + test_point.getX());
-        System.out.println("y=" + test_point.getY());
+        for (Circle circle : circles) {
+            double area = circle.getArea();
+            System.out.println("Pole koła: " + area);
+
+            if (circle instanceof ColoredCircle) {
+                String color = ((ColoredCircle) circle).getColor();
+                System.out.println("Kolor koła: " + color);
+            }
+        }
     }
 }
